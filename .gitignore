@@ -1,7 +1,11 @@
 # Byte-compiled / optimized / DLL files
+virtual/
+*.pyc
+.env
+.vscode/*
 __pycache__/
-*.py[cod]
-*$py.class
+\virtual
+migrations/
 
 # C extensions
 *.so
