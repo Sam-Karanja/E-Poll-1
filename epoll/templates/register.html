@@ -48,7 +48,7 @@
             </div>
 
     <!-- Modal -->
-    <div class="modal fade" id="register" tabindex="-1" role="dialog" aria-labelledby="register" aria-hidden="true">
+    {% comment %} <div class="modal fade" id="register" tabindex="-1" role="dialog" aria-labelledby="register" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <form action="{% url 'account_register' %}" method="POST">
@@ -92,5 +92,5 @@
             </div>
             </form>
         </div>
-    </div>
+    </div> {% endcomment %}
 {% endblock content %} 
