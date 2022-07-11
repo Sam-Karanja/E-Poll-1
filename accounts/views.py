@@ -10,9 +10,9 @@ from .email_backend import EmailBackend
 def account_login(request):
     if request.user.is_authenticated:
         if request.user.user_type == '1':
-            return redirect(reverse("adminDashboard"))
+            return redirect(reverse("administrator:adminDashboard"))
         else:
-            return redirect(reverse("voterDashboard"))
+            return redirect(reverse("administrator:voterDashboard"))
 
     context = {}
     if request.method == 'POST':
@@ -21,9 +21,9 @@ def account_login(request):
         if user != None:
             login(request, user)
             if user.user_type == '1':
-                return redirect(reverse("adminDashboard"))
+                return redirect(reverse("administrator:adminDashboard"))  
             else:
-                return redirect(reverse("voterDashboard"))
+                return redirect(reverse("administrator:voterDashboard"))
         else:
             messages.error(request, "Invalid details")
             return redirect("/")

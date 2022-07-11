@@ -24,15 +24,15 @@ class AccountCheckMiddleWare(MiddlewareMixin):
                         request, "You do not have access to this resource")
                     return redirect(reverse('voterDashboard'))
             else:  # None of the aforementioned ? Please take the user to login page
-                return redirect(reverse('account_login'))
+                return redirect(reverse('accounts_login'))
         else:
             # If the path is login or has anything to do with authentication, pass
-            if request.path == reverse('account_login') or request.path == reverse('account_register') or modulename == 'django.contrib.auth.views' or request.path == reverse('account_login'):
+            if request.path == reverse('accounts:accounts_login') or request.path == reverse('accounts:accounts_register') or modulename == 'django.contrib.auth.views' or request.path == reverse('accounts:accounts_login'):
                 pass
             elif modulename == 'administrator.views' or modulename == 'epoll.views':
                 # If visitor tries to access administrator or voters functions
                 messages.error(
                     request, "You need to be logged in to perform this operation")
-                return redirect(reverse('account_login'))
+                return redirect(reverse('accounts:accounts_login'))
             else:
-                return redirect(reverse('account_login'))
+                return redirect(reverse('accounts:accounts_login'))

@@ -7,7 +7,7 @@ from django.contrib import messages
 from django.http import JsonResponse, HttpResponse
 from django.conf import settings
 import json 
-from django_renderpdf import PDFView
+from django_renderpdf.views import PDFView
 
 
 def find_n_winners(data, n):

@@ -1,15 +1,16 @@
 {% extends "base.html" %}
+{% load static %}
+{% load bootstrap4 %}
 {% block content %}
 
-    <div class="login-box">
-        <div class="login-logo">
-            <b>Voting System</b>
-        </div>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-6 col-lg-6 form-voter">
 
-        <div class="login-box-body">
-            <p class="login-box-msg">Sign in to start your session</p>
 
-            <form action="{% url 'account_login' %}" method="POST">
+            <form action="{% url 'accounts:accounts_login' %}" method="POST">
+                <h1 class="login-box-msg">Welcome Back</h1>
+                <br><br>
                 {% csrf_token %}
                 <div class="form-group has-feedback">
                     <input type="text" class="form-control" name="email" placeholder="Email" required>
@@ -19,18 +20,31 @@
                     <input type="password" class="form-control" name="password" placeholder="Password" required>
                     <span class="glyphicon glyphicon-lock form-control-feedback"></span>
                 </div>
-                <div class="row">
-                    <div class="col-xs-4">
-                        <button type="submit" class="btn btn-primary btn-block btn-flat" name="login"><i
-                                class="fa fa-sign-in"></i> Sign In</button>
-                    </div>
-                    <div class="pull-right col-xs-4">
-                        <a  class="btn btn-primary btn-block btn-flat" href="{% url 'account_register' %}"><i class="fa fa-upload"></i> Register</a>
-                    </div>
+                <div class="checkbox mb-3">
+                    <label>
+                        <input type="checkbox" value="remember-me"> Remember me
+                    </label>
                 </div>
-            </form>
-        </div>
-            </div>
 
- 
-{% endblock content %} 
+
+                <div class="btns mt-5">
+
+                    <button type="submit" class="w-50 btn btn-lg" name="login"><i class="fa fa-sign-in"></i> Log In</button>
+                    <a class="w-50 btn btn-lg text-white mx-2" href="{% url 'accounts:accounts_register' %}"><i class="fa fa-upload"></i>Register</a>
+                    
+                </div> 
+
+
+            </form>
+
+        </div>
+        <div class="col-md-6 col-lg-6">
+            <img src="/static/images/Voting-amico.png" class="img-fluid" alt="Voter Image">
+        </div>
+    </div>
+
+</div>
+
+
+
+{% endblock content %}
