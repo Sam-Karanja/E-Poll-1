@@ -15,7 +15,7 @@
             <div class="icon">
               <i class="fa fa-tasks"></i>
             </div>
-            <a href="{% url 'viewPositions' %}" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+            <a href="{% url 'administrator:viewPositions' %}" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
           </div>
         </div>
         <!-- ./col -->
@@ -29,7 +29,7 @@
             <div class="icon">
               <i class="fa fa-black-tie"></i>
             </div>
-            <a href="{% url 'viewCandidates' %}" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+            <a href="{% url 'administrator:viewCandidates' %}" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
           </div>
         </div>
         <!-- ./col -->
@@ -43,7 +43,7 @@
             <div class="icon">
               <i class="fa fa-users"></i>
             </div>
-            <a href="{% url 'adminViewVoters' %}" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+            <a href="{% url 'administrator:adminViewVoters' %}" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
           </div>
         </div>
         <!-- ./col -->
@@ -57,7 +57,7 @@
             <div class="icon">
               <i class="fa fa-edit"></i>
             </div>
-            <a href="{% url 'viewVotes' %}" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+            <a href="{% url 'administrator:viewVotes' %}" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
           </div>
         </div>
         <!-- ./col -->
@@ -67,7 +67,7 @@
         <div class="col-xs-12">
           <h3>Votes Tally
             <span class="pull-right">
-              <a href="{% url 'printResult' %}" class="btn btn-success btn-sm btn-flat"><span class="glyphicon glyphicon-print"></span> Print</a>
+              <a href="{% url 'administrator:printResult' %}" class="btn btn-success btn-sm btn-flat"><span class="glyphicon glyphicon-print"></span> Print</a>
             </span>
           </h3>
         </div>

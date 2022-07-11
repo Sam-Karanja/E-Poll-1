@@ -91,13 +91,5 @@
   </script>
   {% if messages %}
   {% for message in messages  %}
-  <script type=text/javascript>
-    console.log('error message');
-toastr.{{ message.tags }}('{{ message }}')
-</script>
-  {% endfor %}
-  {% endif %}
-</body>
-
-
-</html>
+  <script type=text/javascript> console.log('error message'); toastr.{{ message.tags }}('{{ message }}') </script>
+    {% endfor %} {% endif %} </body> </html>

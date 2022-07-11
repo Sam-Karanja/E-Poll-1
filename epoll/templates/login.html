@@ -8,7 +8,7 @@
         <div class="col-md-6 col-lg-6 form-voter">
 
 
-            <form action="{% url 'account_login' %}" method="POST">
+            <form action="{% url 'accounts:accounts_login' %}" method="POST">
                 <h1 class="login-box-msg">Welcome Back</h1>
                 <br><br>
                 {% csrf_token %}
@@ -30,7 +30,7 @@
                 <div class="btns mt-5">
 
                     <button type="submit" class="w-50 btn btn-lg" name="login"><i class="fa fa-sign-in"></i> Log In</button>
-                    <a class="w-50 btn btn-lg text-white mx-2" href="{% url 'account_register' %}"><i class="fa fa-upload"></i>Register</a>
+                    <a class="w-50 btn btn-lg text-white mx-2" href="{% url 'accounts:accounts_register' %}"><i class="fa fa-upload"></i>Register</a>
                     
                 </div> 
 

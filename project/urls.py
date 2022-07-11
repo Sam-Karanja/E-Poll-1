@@ -22,7 +22,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('accounts.urls')),
     path('account/', include('accounts.urls')),
-    # path('administrator/', include('administrator.urls')),
+    path('administrator/', include('administrator.urls')),
     path('voting/', include('epoll.urls')),
 ]
 if settings.DEBUG:
