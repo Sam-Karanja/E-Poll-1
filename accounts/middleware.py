@@ -29,7 +29,7 @@ class AccountCheckMiddleWare(MiddlewareMixin):
             # If the path is login or has anything to do with authentication, pass
             if request.path == reverse('account_login') or request.path == reverse('account_register') or modulename == 'django.contrib.auth.views' or request.path == reverse('account_login'):
                 pass
-            elif modulename == 'administrator.views' or modulename == 'voting.views':
+            elif modulename == 'administrator.views' or modulename == 'epoll.views':
                 # If visitor tries to access administrator or voters functions
                 messages.error(
                     request, "You need to be logged in to perform this operation")
