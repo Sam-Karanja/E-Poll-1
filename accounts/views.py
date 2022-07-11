@@ -28,7 +28,7 @@ def account_login(request):
             messages.error(request, "Invalid details")
             return redirect("/")
 
-    return render(request, "epoll/login.html", context)
+    return render(request, "login.html", context)
 
 
 def account_register(request):
@@ -50,7 +50,7 @@ def account_register(request):
         else:
             messages.error(request, "Provided data failed validation")
             # return account_login(request)
-    return render(request, "epoll/register.html", context)
+    return render(request, "register.html", context)
 
 
 def account_logout(request):
