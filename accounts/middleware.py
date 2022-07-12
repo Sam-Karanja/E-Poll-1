@@ -12,19 +12,19 @@ class AccountCheckMiddleWare(MiddlewareMixin):
             if user.user_type == '1':  # Admin
                 if modulename == 'epoll.views':
                     error = True
-                    if request.path == reverse('fetch_ballot'):
+                    if request.path == reverse('epoll:fetch_ballot'):
                         pass
                     else:
                         messages.error(
                             request, "You do not have access to this resource")
-                        return redirect(reverse('adminDashboard'))
+                        return redirect(reverse('administrator:adminDashboard'))
             elif user.user_type == '2':  # Voter
                 if modulename == 'administrator.views':
                     messages.error(
                         request, "You do not have access to this resource")
-                    return redirect(reverse('voterDashboard'))
+                    return redirect(reverse('epoll:voterDashboard'))
             else:  # None of the aforementioned ? Please take the user to login page
-                return redirect(reverse('accounts_login'))
+                return redirect(reverse('accounts:accounts_login'))
         else:
             # If the path is login or has anything to do with authentication, pass
             if request.path == reverse('accounts:accounts_login') or request.path == reverse('accounts:accounts_register') or modulename == 'django.contrib.auth.views' or request.path == reverse('accounts:accounts_login'):

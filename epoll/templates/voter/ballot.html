@@ -1,7 +1,7 @@
 {% extends 'root.html' %}
 {% block content %}
 <section class="content">
-  <h1 class="page-header text-center title"><b>{{ TITLE }}</b></h1>
+  <h1 class="page-header text-center title"><b>E-Poll Voting System</b></h1>
 <div class="row">
 <div class="col-sm-10 col-sm-offset-1">
 
@@ -12,7 +12,7 @@ aria-hidden="true">&times;</button>
 </div>
 
 
-<form method="POST" id="ballotForm" action="{% url 'submit_ballot' %}">
+<form method="POST" id="ballotForm" action="{% url 'epoll:submit_ballot' %}">
   {% csrf_token %}
   {{ ballot|safe }}
   <div class="text-center">
@@ -59,7 +59,7 @@ aria-hidden="true">&times;</button>
           } else {
               $.ajax({
                   type: 'POST',
-                  url: '{% url "preview_vote" %}',
+                  url: '{% url "epoll:preview_vote" %}',
                   data: form,
                   dataType: 'json',
                   success: function(response) {

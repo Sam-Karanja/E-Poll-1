@@ -1,4 +1,6 @@
-{% extends 'base.html' %}
+{% extends "root.html" %}
+{% load bootstrap4 %}
+{% load static %}
 {% block content %}
 <section class="content">
   <div class="row">
@@ -21,9 +23,9 @@
     {% for voter in voters %}
       
     <tr>
-      <td>{{ voter.admin.last_name }}</td>
-      <td>{{ voter.admin.first_name }}</td>
-      <td>{{ voter.admin.email }}</td>
+      <td>{{ voter.user.name }}</td>
+      <td>{{ voter.first_name }}</td>
+      <td>{{ voter.email }}</td>
       <td>{{ voter.phone }}</td>
       
       <td>
@@ -53,7 +55,7 @@
             <h4 class="modal-title"><b>Add New Voter</b></h4>
           </div>
           <div class="modal-body">
-            <form class="form-horizontal" method="POST" action="{% url 'adminViewVoters' %}">
+            <form class="form-horizontal" method="POST" action="{% url 'administrator:adminViewVoters' %}">
               {% csrf_token %}
 
              
@@ -90,7 +92,7 @@
             <h4 class="modal-title"><b>Edit Voter</b></h4>
           </div>
           <div class="modal-body">
-            <form class="form-horizontal" method="POST" action="{% url 'updateVoter' %}">
+            <form class="form-horizontal" method="POST" action="{% url 'administrator:updateVoter' %}">
               {% csrf_token %}
               <input type="hidden" class="id" name="id">
               <div class="form-group">
@@ -143,7 +145,7 @@
             <h4 class="modal-title"><b>Deleting...</b></h4>
           </div>
           <div class="modal-body">
-            <form class="form-horizontal" method="POST" action="{% url 'deleteVoter' %}">
+            <form class="form-horizontal" method="POST" action="{% url 'administrator:deleteVoter' %}">
               <input type="hidden" class="id" name="id">
               {% csrf_token %}
               <div class="text-center">
@@ -188,7 +190,7 @@
   function getRow(id) {
       $.ajax({
           type: 'GET',
-          url: '{% url "viewVoter" %}',
+          url: '{% url "administrator:viewVoter" %}',
           data: {
               id: id
           },

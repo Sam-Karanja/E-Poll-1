@@ -390,4 +390,4 @@ def resetVote(request):
     Votes.objects.all().delete()
     Voter.objects.all().update(voted=False, verified=False, otp=None)
     messages.success(request, "All votes has been reset")
-    return redirect(reverse('viewVotes'))
+    return redirect(reverse('administrator:viewVotes'))

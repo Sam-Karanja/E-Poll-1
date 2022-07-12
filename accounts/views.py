@@ -12,7 +12,7 @@ def account_login(request):
         if request.user.user_type == '1':
             return redirect(reverse("administrator:adminDashboard"))
         else:
-            return redirect(reverse("administrator:voterDashboard"))
+            return redirect(reverse("epoll:voterDashboard"))
 
     context = {}
     if request.method == 'POST':
@@ -23,7 +23,7 @@ def account_login(request):
             if user.user_type == '1':
                 return redirect(reverse("administrator:adminDashboard"))  
             else:
-                return redirect(reverse("administrator:voterDashboard"))
+                return redirect(reverse("epoll:voterDashboard"))
         else:
             messages.error(request, "Invalid details")
             return redirect("/")
@@ -44,9 +44,9 @@ def account_register(request):
             voter = voterForm.save(commit=False)
             voter.admin = user
             user.save()
-            voter.save()
+            voter.admin.save()
             messages.success(request, "Account created. You can login now!")
-            return redirect(reverse('account_login'))
+            return redirect(reverse('accounts:accounts_login'))
         else:
             messages.error(request, "Provided data failed validation")
             # return account_login(request)
@@ -62,4 +62,4 @@ def account_logout(request):
         messages.error(
             request, "You need to be logged in to perform this action")
 
-    return redirect(reverse("account_login"))
+    return redirect(reverse("accounts:accounts_login"))
