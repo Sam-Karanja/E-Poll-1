@@ -1,6 +1,6 @@
 {% load static %}
 
-<aside class="main-sidebar">
+<aside class="main-sidebar " style="background-color: #023047; color: #fff; font-family: 'Poppins', sans-serif;">
   <!-- sidebar: style can be found in sidebar.less -->
   <section class="sidebar">
     <!-- Sidebar user panel -->
@@ -18,21 +18,21 @@
       {% if request.user.user_type == '1' %}
   
       
-      <li class="header">REPORTS</li>
+      <li class="header" style="background-color: #219ebc; color: #fff; font-family: 'Poppins', sans-serif;"> REPORTS</li>
       <li class=""><a href="{% url 'administrator:adminDashboard' %}"><i class="fa fa-dashboard"></i> <span>Dashboard</span></a></li>
       <li class=""><a href="{% url 'administrator:viewVotes' %}"><span class="glyphicon glyphicon-lock"></span> <span>Votes</span></a></li>
-      <li class="header">MANAGE</li>
+      <li class="header" style="background-color: #219ebc; color: #fff; font-family: 'Poppins', sans-serif;">MANAGE</li>
       <li class=""><a href="{% url 'administrator:adminViewVoters' %}"><i class="fa fa-users"></i> <span>Voters</span></a></li>
       <li class=""><a href="{% url 'administrator:viewPositions' %}"><i class="fa fa-tasks"></i> <span>Positions</span></a></li>
       <li class=""><a href="{% url 'administrator:viewCandidates' %}"><i class="fa fa-black-tie"></i> <span>Candidates</span></a></li>
-      <li class="header">SETTINGS</li>
+      <li class="header" style="background-color: #219ebc; color: #fff; font-family: 'Poppins', sans-serif;">SETTINGS</li>
       <li class=""><a href="{% url 'administrator:ballot_position' %}"><i class="fa fa-file-text"></i> <span>Ballot Position</span></a></li>
 
             
       {% endif %}
         
-      <li class="header">Exit</li>
-      <li class=""><a href="{% url 'accounts:account_logout' %}"><i class="fa fa-arrow-left"></i> <span>Logout</span></a></li>
+      
+      <li class=""><a class="text-white" href="{% url 'accounts:account_logout' %}"><i class="fa fa-arrow-left"></i> <span>Logout</span></a></li>
 
     </ul>
   </section>

@@ -1,4 +1,5 @@
 {% load static %}
+
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -19,7 +20,8 @@
   <!-- Bootstrap time Picker -->
   <link rel="stylesheet" href="{% static 'plugins/timepicker/bootstrap-timepicker.min.css' %}">
   <!-- bootstrap datepicker -->
-  <link rel="stylesheet" href="{% static 'bower_components/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css' %}">
+  <link rel="stylesheet"
+    href="{% static 'bower_components/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css' %}">
   <!-- AdminLTE Skins. Choose a skin from the css/skins
        folder instead of downloading all of them to reduce the load. -->
   <link rel="stylesheet" href="{% static 'dist/css/skins/_all-skins.min.css' %}">
@@ -32,32 +34,46 @@
   <![endif]-->
 
   <!-- Google Font -->
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap" rel="stylesheet">
 
   <style>
-    .bold{
-      font-weight:bold;
+    *{
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
     }
-    
-    #candidate_list{
-      margin-top:20px;
+    .body{
+      font-family: 'Poppins', sans-serif !important;
     }
-
-    #candidate_list ul{
-      list-style-type:none;
-    }
-
-    #candidate_list ul li{ 
-      margin:0 30px 30px 0; 
-      vertical-align:top
+    .bold {
+      font-weight: bold;
     }
 
-    .clist{
+    #candidate_list {
+      margin-top: 20px;
+    }
+
+    #candidate_list ul {
+      list-style-type: none;
+    }
+
+    #candidate_list ul li {
+      margin: 0 30px 30px 0;
+      vertical-align: top
+    }
+
+    .clist {
       margin-left: 20px;
     }
 
-    .cname{
+    .cname {
       font-size: 25px;
     }
-  </style>		
+    header, footer{
+      background-color : #023047 !important;
+
+    }
+  </style>
 </head>

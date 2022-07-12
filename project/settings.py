@@ -45,10 +45,11 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'cloudinary_storage',
+    'cloudinary',
     'accounts.apps.AccountsConfig',
     'epoll.apps.EpollConfig',
     'administrator.apps.AdministratorConfig',
-    'cloudinary',
     'bootstrap4',
     'tinymce',
     'rest_framework',
@@ -74,7 +75,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    
+
     'accounts.middleware.AccountCheckMiddleWare',
 ]
 
@@ -176,21 +177,28 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 AUTH_USER_MODEL = 'accounts.CustomUser'
 
-CORS_ALLOW_CREDENTIALS = True 
+CORS_ALLOW_CREDENTIALS = True
 
 CORS_ALLOW_ALL_ORIGINS = False
 
 CORS_ALLOWED_ORIGINS = [
-            'http://localhost:4200' 'always allow localhost:4200',
-            'http://127.0.0.1:4200' 'always allow localhost:4200',
+    'http://localhost:4200' 'always allow localhost:4200',
+    'http://127.0.0.1:4200' 'always allow localhost:4200',
 ]
 
+# cloudinary.config(
+#     cloud_name=config('CLOUD_NAME'),
+#     api_key=config('API_KEY'),
+#     api_secret=config('API_SECRET'),
+#     secure=True
+#  )
 cloudinary.config(
-    cloud_name=config('CLOUD_NAME'),
-    api_key=config('API_KEY'),
-    api_secret=config('API_SECRET'),
-    secure=True
+    cloud_name="florencewangechi",
+    api_key="369929156912222",
+    api_secret="ommNvVKhGFP8kVCshEibmdnlehA",
+    secure=True,
 )
+DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 
 # Email configurations remember to install python-decouple
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'

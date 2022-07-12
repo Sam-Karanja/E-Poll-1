@@ -38,17 +38,19 @@ def generate_ballot(display_controls=False):
                 instruction = "Select only one candidate"
                 input_box = '<input value="'+str(candidate.id)+'" type="radio" class="flat-red ' + \
                     position_name+'" name="'+position_name+'">'
-                image = "cloudinary/" + str(candidate.image)
-            candidates_data = candidates_data + '<li>' + input_box + '<button type="button" class="btn btn-primary btn-sm btn-flat clist platform" data-fullname="'+candidate.fullname+'" data-bio="'+candidate.bio+'"><i class="fa fa-search"></i> Platform</button><img src="' + \
-                '" height="100px" width="100px" class="clist"><span class="cname clist">' + \
-                candidate.fullname+'</span></li>'
+            
+            
+            candidates_data = candidates_data + '<li>' + input_box + '<button type="button" class="btn btn-primary btn-sm btn-flat clist platform" data-fullname="'+candidate.fullname+'" data-bio="'+candidate.bio+'"></button><img src="'+candidate.image.url+'" '+ \
+                '" height="120px" width="180px" class="clist"><span class="cname clist">' + \
+                candidate.fullname+' <span style="font-size:1.5rem;;" class="cname clist px-5 text-muted">' + \
+                candidate.bio+'</span></li>'
         up = ''
         if position.priority == 1:
             up = 'disabled'
         down = ''
         if position.priority == positions.count():
             down = 'disabled'
-        output = output + f"""<div class="row">	<div class="col-xs-12"><div class="box box-solid" id="{position.id}">
+        output = output + f"""<div class="row d-flex justify-content-center">	<div class="col-xs-8"><div class="box box-solid"  style="border: 2px solid #ffb703;" id="{position.id}">
              <div class="box-header with-border">
             <h3 class="box-title"><b>{name}</b></h3>"""
 

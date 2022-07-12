@@ -8,7 +8,7 @@ class Voter(models.Model):
     # admin = models.ManyToManyField(CustomUser, on_delete=models.CASCADE)
     user = models.OneToOneField(CustomUser, on_delete=models.CASCADE)
     name = models.CharField(max_length=255)
-    phone = models.CharField(max_length=11, unique=True)  
+    phone = models.CharField(max_length=11)  
     email = models.EmailField(max_length=255)
     otp = models.CharField(max_length=10, null=True)
     verified = models.BooleanField(default=False)
@@ -30,7 +30,7 @@ class Position(models.Model):
 
 class Candidate(models.Model):
     fullname = models.CharField(max_length=50)
-    image = CloudinaryField('image')
+    image = CloudinaryField('image', folder = "avatar/",)
     bio = models.TextField()
     position = models.ForeignKey(Position, on_delete=models.CASCADE)
 
