@@ -1,4 +1,7 @@
-{% extends 'base.html' %}
+{% extends "root.html" %}
+{% load bootstrap4 %}
+{% load static %}
+
 {% block content %}
 <section class="content">
   <div class="row">
@@ -31,7 +34,7 @@
       });
       $.ajax({
         type: 'GET',
-        url: '{% url "update_ballot_position" 1 "up" %}'.replace(1, id),
+        url: '{% url "administrator:update_ballot_position" 1 "up" %}'.replace(1, id),
         dataType: 'json',
         success: function(response){
           if(!response.error){
@@ -49,7 +52,7 @@
       });
       $.ajax({
         type: 'GET',
-        url:  '{% url "update_ballot_position" 1 "down" %}'.replace(1, id),
+        url:  '{% url "administrator:update_ballot_position" 1 "down" %}'.replace(1, id),
         dataType: 'json',
         success: function(response){
           if(!response.error){
@@ -64,7 +67,7 @@
   function fetch(){
     $.ajax({
       type: 'GET',
-      url: '{% url "fetch_ballot" %}',
+      url: '{% url "epoll:fetch_ballot" %}',
       dataType: 'json',
       success: function(response){
         $('#content').html(response).iCheck({checkboxClass: 'icheckbox_flat-green',radioClass: 'iradio_flat-green'});

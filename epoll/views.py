@@ -38,9 +38,9 @@ def generate_ballot(display_controls=False):
                 instruction = "Select only one candidate"
                 input_box = '<input value="'+str(candidate.id)+'" type="radio" class="flat-red ' + \
                     position_name+'" name="'+position_name+'">'
-            image = "/media/" + str(candidate.photo)
+                image = "cloudinary/" + str(candidate.image)
             candidates_data = candidates_data + '<li>' + input_box + '<button type="button" class="btn btn-primary btn-sm btn-flat clist platform" data-fullname="'+candidate.fullname+'" data-bio="'+candidate.bio+'"><i class="fa fa-search"></i> Platform</button><img src="' + \
-                image+'" height="100px" width="100px" class="clist"><span class="cname clist">' + \
+                '" height="100px" width="100px" class="clist"><span class="cname clist">' + \
                 candidate.fullname+'</span></li>'
         up = ''
         if position.priority == 1:
@@ -99,6 +99,7 @@ def generate_otp():
 
 
 def dashboard(request):
+    Voter.objects.get_or_create(user=request.user)
     user = request.user
     # * Check if this voter has been verified
     if user.voter.otp is None or user.voter.verified == False:
@@ -106,9 +107,9 @@ def dashboard(request):
             # Bypass
             msg = bypass_otp()
             messages.success(request, msg)
-            return redirect(reverse('show_ballot'))
+            return redirect(reverse('epoll:show_ballot'))
         else:
-            return redirect(reverse('voterVerify'))
+            return redirect(reverse('epoll:voterVerify'))
     else:
         if user.voter.voted:  # * User has voted
             # To display election result or candidates I voted for ?
@@ -117,7 +118,7 @@ def dashboard(request):
             }
             return render(request, "voter/result.html", context)
         else:
-            return redirect(reverse('show_ballot'))
+            return redirect(reverse('epoll:show_ballot'))
 
 
 def verify(request):
@@ -227,8 +228,8 @@ def verify_otp(request):
                 voter.save()
                 error = False
     if error:
-        return redirect(reverse('voterVerify'))
-    return redirect(reverse('show_ballot'))
+        return redirect(reverse('apoll:voterVerify'))
+    return redirect(reverse('epoll:show_ballot'))
 
 
 def show_ballot(request):
@@ -320,13 +321,13 @@ def preview_vote(request):
 def submit_ballot(request):
     if request.method != 'POST':
         messages.error(request, "Please, browse the system properly")
-        return redirect(reverse('show_ballot'))
+        return redirect(reverse('epoll:show_ballot'))
 
     # Verify if the voter has voted or not
     voter = request.user.voter
     if voter.voted:
         messages.error(request, "You have voted already")
-        return redirect(reverse('voterDashboard'))
+        return redirect(reverse('epoll:voterDashboard'))
 
     form = dict(request.POST)
     form.pop('csrfmiddlewaretoken', None)  # Pop CSRF Token
@@ -335,7 +336,7 @@ def submit_ballot(request):
     # Ensure at least one vote is selected
     if len(form.keys()) < 1:
         messages.error(request, "Please select at least one candidate")
-        return redirect(reverse('show_ballot'))
+        return redirect(reverse('epoll:show_ballot'))
     positions = Position.objects.all()
     form_count = 0
     for position in positions:
@@ -350,7 +351,7 @@ def submit_ballot(request):
             if len(form_position) > max_vote:
                 messages.error(request, "You can only choose " +
                                str(max_vote) + " candidates for " + position.name)
-                return redirect(reverse('show_ballot'))
+                return redirect(reverse('epoll:show_ballot'))
             else:
                 for form_candidate_id in form_position:
                     form_count += 1
@@ -365,7 +366,7 @@ def submit_ballot(request):
                     except Exception as e:
                         messages.error(
                             request, "Please, browse the system properly " + str(e))
-                        return redirect(reverse('show_ballot'))
+                        return redirect(reverse('epoll:show_ballot'))
         else:
             this_key = pos
             form_position = form.get(this_key)
@@ -385,7 +386,7 @@ def submit_ballot(request):
             except Exception as e:
                 messages.error(
                     request, "Please, browse the system properly " + str(e))
-                return redirect(reverse('show_ballot'))
+                return redirect(reverse('epoll:show_ballot'))
     # Count total number of records inserted
     # Check it viz-a-viz form_count
     inserted_votes = Votes.objects.filter(voter=voter)
@@ -393,10 +394,10 @@ def submit_ballot(request):
         # Delete
         inserted_votes.delete()
         messages.error(request, "Please try voting again!")
-        return redirect(reverse('show_ballot'))
+        return redirect(reverse('epoll:show_ballot'))
     else:
         # Update Voter profile to voted
         voter.voted = True
         voter.save()
         messages.success(request, "Thanks for voting")
-        return redirect(reverse('voterDashboard'))
+        return redirect(reverse('epoll:voterDashboard'))

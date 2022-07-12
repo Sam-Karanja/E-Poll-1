@@ -45,9 +45,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'epoll',
-    'administrator',
-    'accounts',
+    'accounts.apps.AccountsConfig',
+    'epoll.apps.EpollConfig',
+    'administrator.apps.AdministratorConfig',
     'cloudinary',
     'bootstrap4',
     'tinymce',
@@ -121,6 +121,13 @@ else:
             default=config('DATABASE_URL')
         )
     }
+
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
+#     }
+# }
 
 
 # Password validation
