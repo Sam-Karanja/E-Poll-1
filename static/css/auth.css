@@ -9,16 +9,10 @@ body{
     font-family: 'Poppins', sans-serif;
     background-color: #023047 !important;
     color: white;
-    position: fixed;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    right: 0;
-    overflow: auto;
 }
 
 .form-voter {
-  width: 800px;
+ max-width: 800px;
  
   padding: 15px;
   border: 2px solid #ffb703;
@@ -31,14 +25,11 @@ body{
   align-content: center;
 }
 
-.form-signin .form-floating:focus-within {
-  z-index: 2;
-}
 
 .form-control {
   margin-bottom: 10px;
   background-color: transparent;
-  border: 1px solid #ffb703;
+  border: 1px solid #ffb703 !important;
   border-radius: 0px !important;
   color: white !important;
   

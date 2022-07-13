@@ -20,9 +20,8 @@ from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    re_path(r"^", include("accounts.urls")),
-    # path('', include('accounts.urls')),
-    # path('account/', include('accounts.urls')),
+    # re_path(r"^", include("accounts.urls")),
+    path('', include('accounts.urls')),
     path('administrator/', include('administrator.urls')),
     path('voting/', include('epoll.urls')),
 ]
