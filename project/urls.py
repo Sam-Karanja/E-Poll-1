@@ -21,9 +21,15 @@ from django.conf.urls.static import static
 urlpatterns = [
     path('admin/', admin.site.urls),
     # re_path(r"^", include("accounts.urls")),
-    path('', include('accounts.urls')),
+    path('', include('home.urls')),
+    path('account/', include('accounts.urls')),
     path('administrator/', include('administrator.urls')),
     path('voting/', include('epoll.urls')),
+
+
+    # path('api/', include('accounts.urls')),
+    # # path('api/', include('administrator.urls')),
+    # path('api/', include('epoll.urls'))
 ]
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
