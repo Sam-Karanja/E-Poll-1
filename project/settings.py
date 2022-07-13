@@ -50,6 +50,7 @@ INSTALLED_APPS = [
     'accounts.apps.AccountsConfig',
     'epoll.apps.EpollConfig',
     'administrator.apps.AdministratorConfig',
+    'home',
     'bootstrap4',
     'tinymce',
     'rest_framework',
@@ -76,7 +77,7 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 
-    'accounts.middleware.AccountCheckMiddleWare',
+    # 'accounts.middleware.AccountCheckMiddleWare',
 ]
 
 ROOT_URLCONF = 'project.urls'

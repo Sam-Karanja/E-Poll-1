@@ -4,7 +4,8 @@ from . import views
 app_name = 'administrator'
 
 urlpatterns = [
-    path('', views.dashboard, name="adminDashboard"),
+    path('admin', views.dashboard, name="adminDashboard"),
+    
     # * Voters
     path('voters', views.voters, name="adminViewVoters"),
     path('voters/view', views.view_voter_by_id, name="viewVoter"),
@@ -33,8 +34,4 @@ urlpatterns = [
     path('votes/view', views.viewVotes, name='viewVotes'),
     path('votes/reset/', views.resetVote, name='resetVote'),
     path('votes/print/', views.PrintView.as_view(), name='printResult'),
-
-
-
-
 ]

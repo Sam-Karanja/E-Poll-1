@@ -14,6 +14,7 @@ class CustomUserForm(FormSettings):
     email = forms.EmailField(required=True)
     # email = forms.EmailField(required=True)
     password = forms.CharField(widget=forms.PasswordInput)
+   
 
     widget = {
         'password': forms.PasswordInput(),
@@ -58,4 +59,4 @@ class CustomUserForm(FormSettings):
 
     class Meta:
         model = CustomUser
-        fields = ['first_name', 'last_name','email', 'password', ]
+        fields = ['first_name', 'last_name','email', 'password']

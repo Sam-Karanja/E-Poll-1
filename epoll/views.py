@@ -11,12 +11,6 @@ import json
 # Create your views here.
 
 
-def index(request):
-    if not request.user.is_authenticated:
-        return account_login(request)
-    context = {}
-
-
 def generate_ballot(display_controls=False):
     positions = Position.objects.order_by('priority').all()
     output = ""
@@ -24,7 +18,7 @@ def generate_ballot(display_controls=False):
     num = 1
     # return None
     for position in positions:
-        name = position.name
+        name = position.position_name
         position_name = slugify(name)
         candidates = Candidate.objects.filter(position=position)
         for candidate in candidates:
@@ -237,7 +231,7 @@ def verify_otp(request):
 def show_ballot(request):
     if request.user.voter.voted:
         messages.error(request, "You have voted already")
-        return redirect(reverse('voterDashboard'))
+        return redirect(reverse('epoll:voterDashboard'))
     ballot = generate_ballot(display_controls=False)
     context = {
         'ballot': ballot
@@ -343,7 +337,7 @@ def submit_ballot(request):
     form_count = 0
     for position in positions:
         max_vote = position.max_vote
-        pos = slugify(position.name)
+        pos = slugify(position.position_name)
         pos_id = position.id
         if position.max_vote > 1:
             this_key = pos + "[]"

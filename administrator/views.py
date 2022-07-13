@@ -10,6 +10,9 @@ import json
 from django_renderpdf.views import PDFView
 
 
+def index(request):
+    return render(request, "landing_page.html")
+
 def find_n_winners(data, n):
     """Read More
     https://www.geeksforgeeks.org/python-program-to-find-n-largest-elements-from-a-list/
