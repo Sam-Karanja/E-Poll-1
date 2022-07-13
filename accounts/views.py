@@ -6,9 +6,6 @@ from django.contrib.auth import login, logout
 from .email_backend import EmailBackend
 # Create your views here.
 
-def index(request):
-    return render(request, "landing_page.html")
-
 def account_login(request):
     if request.user.is_authenticated:
         if request.user.user_type == '1':
@@ -30,7 +27,7 @@ def account_login(request):
             messages.error(request, "Invalid details")
             return redirect("accounts:accounts_login")
 
-    return render(request, "login.html",  context)
+    return render(request, "login.html")
 
 
 def account_register(request):
@@ -64,4 +61,5 @@ def account_logout(request):
         messages.error(
             request, "You need to be logged in to perform this action")
 
-    return redirect(reverse("accounts:index"))
+    return render(request, "landing_page.html")
+        

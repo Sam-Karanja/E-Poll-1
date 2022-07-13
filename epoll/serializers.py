@@ -27,3 +27,5 @@ class VotesSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Votes
         fields = ['url', 'voter', 'position', 'candidate']
+
+

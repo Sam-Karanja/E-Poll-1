@@ -13,7 +13,7 @@
 <div class="box-body">
   <table id="example1" class="table table-bordered">
       <thead>
-          <th>Name</th>
+          <th>Position-Name</th>
           <th>Maximum Votes</th>
           <th>Priority</th>
           <th>Action</th>
@@ -22,7 +22,7 @@
     {% for position in positions %}
       
     <tr>
-      <td>{{ position.name }}</td>
+      <td>{{ position.position_name }}</td>
       <td>{{ position.max_vote }}</td>
       <td>{{ position.priority }}</td>
       

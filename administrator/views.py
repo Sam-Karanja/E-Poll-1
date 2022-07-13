@@ -10,9 +10,8 @@ import json
 from django_renderpdf.views import PDFView
 
 
-# def index(request):
-#     return render(request, "landing_page.html")
-
+def index(request):
+    return render(request, "landing_page.html")
 
 def find_n_winners(data, n):
     """Read More
@@ -147,7 +146,7 @@ def voters(request):
             messages.success(request, "New voter created")
         else:
             messages.error(request, "Form validation failed")
-    return render(request, "voters.html", context)
+    return render(request, "admin/voters.html", context)
 
 
 def view_voter_by_id(request):
