@@ -1,0 +1,82 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap');
+
+
+.navbar {
+    background-color: #219ebc;
+    font-family: 'Poppins', sans-serif;
+    color: #023047 !important;
+}
+
+.navbar ul {
+    font-size: 22px;
+}
+
+*{
+    margin: 0;
+    padding:0;
+    box-sizing:border-box;
+}
+body{
+    font-family: 'Poppins', sans-serif;
+    color: #023047 !important;
+}
+.intro{
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    text-align: center;
+}
+.intro h1{
+    font-size: 42px;
+}
+.features{
+    background-color: #023047;
+    color: white;
+    padding-bottom: 100px;
+}
+.featicons{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    text-align: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+.featicons i{
+    font-size: 150px;
+}
+.featicons ul{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    list-style: none;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    text-align: center;
+}
+.faqimg{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    text-align: center;
+}
+.qstns{
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    align-content: center;
+}
+span{
+    padding: 10px;
+    background-color: #ffb703;
+    border-radius: 100% !important; 
+}
+.qstns ol{
+    list-style: none;
+}
+button h3{
+    font-size: 22px;
+}
