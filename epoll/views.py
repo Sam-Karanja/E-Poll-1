@@ -11,12 +11,6 @@ import json
 # Create your views here.
 
 
-def index(request):
-    if not request.user.is_authenticated:
-        return account_login(request)
-    context = {}
-
-
 def generate_ballot(display_controls=False):
     positions = Position.objects.order_by('priority').all()
     output = ""

@@ -6,6 +6,8 @@ from django.contrib.auth import login, logout
 from .email_backend import EmailBackend
 # Create your views here.
 
+def index(request):
+    return render(request, "landing_page.html")
 
 def account_login(request):
     if request.user.is_authenticated:
@@ -26,9 +28,9 @@ def account_login(request):
                 return redirect(reverse("epoll:voterDashboard"))
         else:
             messages.error(request, "Invalid details")
-            return redirect("/")
+            return redirect("accounts:accounts_login")
 
-    return render(request, "login.html", context)
+    return render(request, "login.html",  context)
 
 
 def account_register(request):
@@ -49,7 +51,7 @@ def account_register(request):
             return redirect(reverse('accounts:accounts_login'))
         else:
             messages.error(request, "Provided data failed validation")
-            # return account_login(request)
+            return account_login(request)
     return render(request, "register.html", context)
 
 
@@ -62,4 +64,4 @@ def account_logout(request):
         messages.error(
             request, "You need to be logged in to perform this action")
 
-    return redirect(reverse("accounts:accounts_login"))
+    return redirect(reverse("accounts:index"))

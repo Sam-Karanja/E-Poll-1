@@ -4,7 +4,7 @@ from . import views
 app_name = "epoll"
 
 urlpatterns = [
-    path('', views.index),
+    # path('', views.index),
     path('ballot/fetch/', views.fetch_ballot, name='fetch_ballot'),
     path('dashboard/', views.dashboard, name='voterDashboard'),
     path('verify/', views.verify, name='voterVerify'),

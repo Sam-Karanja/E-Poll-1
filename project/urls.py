@@ -15,13 +15,14 @@ Including another URLconf
 """
 from . import settings
 from django.contrib import admin
-from django.urls import path, include
+from django.urls import path, include, re_path
 from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('accounts.urls')),
-    path('account/', include('accounts.urls')),
+    re_path(r"^", include("accounts.urls")),
+    # path('', include('accounts.urls')),
+    # path('account/', include('accounts.urls')),
     path('administrator/', include('administrator.urls')),
     path('voting/', include('epoll.urls')),
 ]
