@@ -9,6 +9,9 @@
 ## Description 
 - This is a Simple,secure and transparent voting system. With our lives increasingly shifting online, it’s only logical that voting would transition to a digital platform, too. Common features include single-vote verification, which ensures members don’t inadvertently vote more than once; ballot tracking, which monitors the exact moment a ballot is processed; a secure network to protect the entire process from nominations to tabulation; and secret ballots, which keep ballots private. 
 
+![image](https://user-images.githubusercontent.com/97955649/178937516-f3c5196e-f466-4ca8-896a-1a81cae65df8.png)
+
+![image](https://user-images.githubusercontent.com/97955649/178937950-bd3ff0aa-9455-4cd4-95d3-4c5539139402.png)
 
 ## User Story
 ####  Voter view
@@ -72,7 +75,7 @@ Here is a run through of how to set up the application:
 
 ## Contacts 
 **florencewambui@gmail.com**
-**                        **
+**maryatieno@gmail.com**
 **gladyswahito7@gmail.com**
 **okongofaith3@gmail.com**
 
