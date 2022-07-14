@@ -1,12 +1,12 @@
 {% load static %}
-<header class="main-header" style="background-color:#023047; color: #fff; font-family: 'Poppins', sans-serif;">
-  <a href="{% url 'administrator:adminDashboard' %}" class="logo"  style="background-color:#023047 !important;">
-     <span class="logo-lg"  style="background-color:#023047 !important;"><b> E-Poll </span>
+<header class="main-header" style="background-color:#219ebc; color: #fff; font-family: 'Poppins', sans-serif;">
+  <a href="{% url 'administrator:adminDashboard' %}" class="logo"  style="background-color:#219ebc !important;">
+     <span class="logo-lg"  style="background-color:#219ebc !important;"><b> E-Poll </span>
   </a>
   <!-- Header Navbar: style can be found in header.less -->
-  <nav class="navbar navbar-static-top"  style="background-color:#023047 !important;">
+  <nav class="navbar navbar-static-top"  style="background-color:#219ebc !important;">
     <!-- Sidebar toggle button-->
-    <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button">
+    <a href="#" class="sidebar-toggle d-flex justify-content-start" data-toggle="push-menu" role="button">
       <span class="sr-only">Toggle navigation</span>
     </a>
 
@@ -19,9 +19,6 @@
           </a>
           <ul class="dropdown-menu">
             <!-- User image -->
-            <li class="user-header">
-              <img src="{% static 'images/female avatae.png' %}" class="img-circle" alt="User Image">
-            </li>
             <li class="user-footer">
               <div class="pull-left">
                 <a href="#profile" data-toggle="modal" class="btn btn-default btn-flat" id="admin_profile">Update</a>

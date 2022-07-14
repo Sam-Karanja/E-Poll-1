@@ -6,39 +6,28 @@
     
 }
 body{
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Poppins', sans-serif  !important;
     background-color: #023047 !important;
     color: white;
-    position: fixed;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    right: 0;
-    overflow: auto;
 }
 
 .form-voter {
-  width: 800px;
- 
+ max-width: 800px;
+ font-family: 'Poppins', sans-serif  !important;
   padding: 15px;
   border: 2px solid #ffb703;
   border-radius: 8px;
-}
-.form-voter{
   display: flex;
   justify-content: center;
   align-items: center;
   align-content: center;
 }
 
-.form-signin .form-floating:focus-within {
-  z-index: 2;
-}
 
 .form-control {
   margin-bottom: 10px;
   background-color: transparent;
-  border: 1px solid #ffb703;
+  border: 1px solid #ffb703 !important;
   border-radius: 0px !important;
   color: white !important;
   
@@ -55,7 +44,6 @@ body{
 }
 button, a{
   background-color: #219ebc !important;
-  width:3cm !important;
   color: white !important;
 }
 
