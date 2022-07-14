@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+{% load static %}
+{% load bootstrap4 %}
+{% block content %}
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-6 col-lg-6 form-voter">
+
+
+            <form action="{% url 'accounts:accounts_login' %}" method="POST">
+                <h1 class="login-box-msg">Welcome Back</h1>
+                <br><br>
+                {% csrf_token %}
+                <div class="form-group has-feedback">
+                    <input type="text" class="form-control" name="email" placeholder="Email" required>
+                    <span class="glyphicon glyphicon-user form-control-feedback"></span>
+                </div>
+                <div class="form-group has-feedback">
+                    <input type="password" class="form-control" name="password" placeholder="Password" required>
+                    <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+                </div>
+                <div class="checkbox mb-3">
+                    <label>
+                        <input type="checkbox" value="remember-me"> Remember me
+                    </label>
+                </div>
+
+
+                <div class="btns mt-5">
+
+                    <button type="submit" class="w-50 btn btn-lg" name="login"><i class="fa fa-sign-in"></i> Log In</button>
+                    <a class="w-50 btn btn-lg text-white mx-2" href="{% url 'accounts:accounts_register' %}"><i class="fa fa-upload"></i>Register</a>
+                    
+                </div> 
+
+
+            </form>
+
+        </div>
+        <div class="col-md-6 col-lg-6">
+            <img src="/static/images/Voting-amico.png" class="img-fluid" alt="Voter Image">
+        </div>
+    </div>
+
+</div>
+
+
+
+{% endblock content %}

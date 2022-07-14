@@ -10,6 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.0/ref/settings/
 """
 
+import os
 from pathlib import Path
 import cloudinary
 import cloudinary.uploader
@@ -44,10 +45,12 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'epoll',
-    'administrator',
-    'accounts',
+    'cloudinary_storage',
     'cloudinary',
+    'accounts.apps.AccountsConfig',
+    'epoll.apps.EpollConfig',
+    'administrator.apps.AdministratorConfig',
+    'home',
     'bootstrap4',
     'tinymce',
     'rest_framework',
@@ -73,6 +76,8 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+
+    'accounts.middleware.AccountCheckMiddleWare',
 ]
 
 ROOT_URLCONF = 'project.urls'
@@ -119,6 +124,13 @@ else:
         )
     }
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
+#     }
+# }
+
 
 # Password validation
 # https://docs.djangoproject.com/en/4.0/ref/settings/#auth-password-validators
@@ -153,26 +165,41 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATIC_URL = 'static/'
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, "static"),
+]
+# Media Files
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 AUTH_USER_MODEL = 'accounts.CustomUser'
 
-CORS_ALLOW_CREDENTIALS = True 
+CORS_ALLOW_CREDENTIALS = True
 
 CORS_ALLOW_ALL_ORIGINS = False
 
 CORS_ALLOWED_ORIGINS = [
-            'http://localhost:4200' 'always allow localhost:4200',
-            'http://127.0.0.1:4200' 'always allow localhost:4200',
+    'http://localhost:4200' 'always allow localhost:4200',
+    'http://127.0.0.1:4200' 'always allow localhost:4200',
 ]
 
+# cloudinary.config(
+#     cloud_name=config('CLOUD_NAME'),
+#     api_key=config('API_KEY'),
+#     api_secret=config('API_SECRET'),
+#     secure=True
+#  )
 cloudinary.config(
-    cloud_name=config('CLOUD_NAME'),
-    api_key=config('API_KEY'),
-    api_secret=config('API_SECRET'),
-    secure=True
+    cloud_name="florencewangechi",
+    api_key="369929156912222",
+    api_secret="ommNvVKhGFP8kVCshEibmdnlehA",
+    secure=True,
 )
+DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 
 # Email configurations remember to install python-decouple
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'

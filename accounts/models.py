@@ -3,6 +3,7 @@ from django.db import models
 from django.contrib.auth.hashers import make_password
 from django.db.models.signals import post_save
 from django.dispatch import receiver
+from cloudinary.models import CloudinaryField
 
 # Create your models here.
 
@@ -34,7 +35,7 @@ class CustomUserManager(UserManager):
 
 class CustomUser(AbstractUser):
     USER_TYPE = ((1, "Admin"), (2, "Voter"))
-    username = None  # Removed username, using email instead
+    username = None 
     email = models.EmailField(unique=True)
     user_type = models.CharField(default=2, choices=USER_TYPE, max_length=1)
     created_at = models.DateTimeField(auto_now_add=True)
