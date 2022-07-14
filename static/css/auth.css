@@ -6,19 +6,17 @@
     
 }
 body{
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Poppins', sans-serif  !important;
     background-color: #023047 !important;
     color: white;
 }
 
 .form-voter {
  max-width: 800px;
- 
+ font-family: 'Poppins', sans-serif  !important;
   padding: 15px;
   border: 2px solid #ffb703;
   border-radius: 8px;
-}
-.form-voter{
   display: flex;
   justify-content: center;
   align-items: center;
@@ -46,7 +44,6 @@ body{
 }
 button, a{
   background-color: #219ebc !important;
-  width:3cm !important;
   color: white !important;
 }
 

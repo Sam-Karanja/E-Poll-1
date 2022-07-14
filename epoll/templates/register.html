@@ -12,6 +12,8 @@
 
             <form action="{% url 'accounts:accounts_register' %}" method="POST">
                 <h1 class="h3 mb-3 fw-normal text-center pt-4">Register as a Voter</h1>
+                <hr class="w-100 " style="color:#ffb703;">
+
                 <br><br>
                 {% csrf_token %}
 
@@ -34,9 +36,9 @@
                     {% endfor %}
                     <div class="btns mt-5">
 
-                        <button type="submit" class="w-50 btn btn-lg" name="login"><i
+                        <button type="submit" class="btn btn-lg text-center" name="login"><i
                                 class="fa fa-sign-in"></i> Register</button>
-                        <a class="w-50 btn btn-lg text-white mx-2" href="{% url 'accounts:accounts_login' %}"><i
+                        <a class=" btn btn-lg mx-1 text-center" href="{% url 'accounts:accounts_login' %}"><i
                                 class="fa fa-upload"></i> Log In</a>
 
                     </div>
