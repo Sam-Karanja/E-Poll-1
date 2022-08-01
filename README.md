@@ -1,11 +1,11 @@
 # E-Poll
 
-## Authors/Collaborators
-- Florence Wangechi
-- Mary Atieno
-- Gladys Wambura 
-- Faith Okong'o
--Samuel Murigi
+## Author
+
+
+
+
+Samuel Murigi
 
 ## Description 
 - This is a Simple,secure and transparent voting system. With our lives increasingly shifting online, it’s only logical that voting would transition to a digital platform, too. Common features include single-vote verification, which ensures members don’t inadvertently vote more than once; ballot tracking, which monitors the exact moment a ballot is processed; a secure network to protect the entire process from nominations to tabulation; and secret ballots, which keep ballots private. 
@@ -75,10 +75,10 @@ Here is a run through of how to set up the application:
 
 
 ## Contacts 
-**florencewambui@gmail.com**
-**maryatieno@gmail.com**
-**gladyswahito7@gmail.com**
-**okongofaith3@gmail.com**
+
+
+
+
 **karanjasam210@gmail.com**
 
 
